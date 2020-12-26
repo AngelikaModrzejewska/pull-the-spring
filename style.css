@@ -34,7 +34,7 @@ body {
   position: absolute;
   bottom: 0;
   left: 15%;
-  border-bottom: calc(0.25 * 80vh) solid rgb(114, 77, 60);
+  border-bottom: calc(0.25 * 80vh) solid #724d3c;
   border-left: 15px solid transparent;
   border-right: 15px solid transparent;
 }
