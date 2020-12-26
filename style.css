@@ -1,0 +1,155 @@
+body {
+  display: flex;
+  height: 100vh;
+  margin: 0;
+  font-family: 'Texturina', serif;
+  background-color: #cebfbf;
+}
+
+.room {
+  position: relative;
+  width: 80vw;
+  height: 80vh;
+  margin: auto;
+  background-image: url(clouds.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: 5px solid #bd4313;
+  overflow: hidden;
+}
+
+.ball {
+  position: absolute;
+  bottom: 25%;
+  left: 15%;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-image: url(ball.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.column {
+  position: absolute;
+  bottom: 0;
+  left: 15%;
+  border-bottom: calc(0.25 * 80vh) solid rgb(114, 77, 60);
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+}
+
+.spring {
+  box-sizing: border-box;
+  position: absolute;
+  left: -3%;
+  bottom: calc(25% + 5px);
+  width: 17%;
+  height: 20px;
+  background-color: #535252;
+  border-bottom: 6px solid #464545;
+  animation: spring 1.5s infinite alternate paused;
+}
+
+.panel {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 30vw;
+}
+
+.btn-action {
+  display: block;
+  width: 100%;
+  border: none;
+  background-color: #bd4313;
+  font-family: 'Texturina', serif;
+  font-size: 14px;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  line-height: 250%;
+  user-select: none;
+  cursor: pointer;
+  outline: none;
+  transition: background-color .3s;
+}
+
+@media(max-width:800px) {
+  .panel {
+    width: auto;
+    left: 20px;
+  }
+}
+
+.btn-action:hover {
+  background-color: #f05518;
+}
+
+.bar {
+  height: 30px;
+  margin-top: 10px;
+  border: 2px solid #053d86;
+}
+
+.fill {
+  width: 5%;
+  height: 30px;
+  background-color: #053d86;
+  animation-name: fill;
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: ease-out;
+  animation-play-state: paused;
+}
+
+:root {
+  --spring-left: 0;
+  --power-x: 0;
+}
+
+@keyframes fill {
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes spring {
+  100% {
+    left: -14%;
+  }
+}
+
+@keyframes release-spring {
+  0% {
+    left: var(--spring-left, -14%);
+  }
+
+  100% {
+    left: 0;
+  }
+}
+
+@keyframes fly-ball-x {
+  100% {
+    left: var(--power-x, 300px);
+  }
+}
+
+@keyframes fly-ball-y {
+  100% {
+    bottom: 0;
+  }
+}
+
+.iconref {
+  position: fixed;
+  bottom: 3px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+a {
+  color: #535252;
+}
